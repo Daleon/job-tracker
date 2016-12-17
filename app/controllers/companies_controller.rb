@@ -2,7 +2,8 @@ class CompaniesController < ApplicationController
   before_action :set_company, only: [:show, :edit, :update, :destroy]
 
   def index
-    @companies = Company.where(location_params).order(city_params)
+    # @companies = Company.where(location_params).order(city_params)
+    @companies = Company.all
   end
 
   def new
@@ -51,16 +52,16 @@ class CompaniesController < ApplicationController
   private
 
   def company_params
-    params.require(:company).permit(:name, :city)
+    params.require(:company).permit(:name)
   end
 
-  def city_params
-    return "city" if params[:sort] == "location"
-  end
-
-  def location_params
-    return "city = '#{params[:location]}'" if params[:location]
-  end
+  # def city_params
+  #   return "city" if params[:sort] == "location"
+  # end
+  #
+  # def location_params
+  #   return "city = '#{params[:location]}'" if params[:location]
+  # end
 
   def set_company
     @company = Company.find(params[:id])

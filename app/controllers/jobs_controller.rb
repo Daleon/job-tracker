@@ -65,4 +65,12 @@ class JobsController < ApplicationController
   def set_categories
     @categories = Category.all
   end
+
+  def city_params
+    return "city" if params[:sort] == "location"
+  end
+
+  def location_params
+    return "city = '#{params[:location]}'" if params[:location]
+  end
 end

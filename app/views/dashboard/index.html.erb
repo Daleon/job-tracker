@@ -21,37 +21,14 @@
     </div>
   </div>
 </div>
-<img src="http://img08.deviantart.net/ddbe/i/2012/178/a/3/why_not_zoidberg__by_nogard00-d5523p1.jpg">
 
 <div class="col-md-4">
   <div class="panel panel-default">
     <h2>Jobs by Location</h2>
     <div class="panel-body" style="background-color: #e0fffb; text-align: left">
-      <% Job.jobs_by_location.each do |city, count| %>
-        <h4><%= link_to city, "/companies?location=#{city}" %>: <%= count %> jobs</h4>
+      <% Job.jobs_by_location.each do |job, count| %>
+        <h4><%= link_to job, "/companies/company_id/jobs/job_id" %>: <%= count %> jobs</h4>
       <% end %><hr>
-    </div>
-  </div>
-</div>
-
-<div class="col-md-4">
-  <div class="panel panel-default">
-    <div class="panel-header">
-    </div>
-    <div class="panel-body"  style="background-color: #ffe0e0; text-align: left">
-      <div class="col-md-6">
-      </div>
-      <div class="col-md-6">
-      </div>
-
-      <% Job.jobs_by_level_of_interest.each do |level_of_interest, count| %>
-        <div class="col-md-6">
-          <%= level_of_interest  %>
-        </div>
-        <div class="col-md-6">
-          <%= count %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>
